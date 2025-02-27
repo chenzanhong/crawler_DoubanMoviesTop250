@@ -36,7 +36,6 @@ findInq = re.compile(r'<span class="inq">(.*)</span>')
 findBd = re.compile(r'<p class="">(.*?)</p>', re.S)
 
 
-
 def getData(baseurl):
     datalist = []
     num = 0
@@ -154,7 +153,6 @@ def saveData2DB(datalist,savepath):
     conn.close()
 
     print("成功保存到数据库")
-
 
 
 def initDB(dbpath):
