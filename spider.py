@@ -1,11 +1,15 @@
 # -*- coding = utf-8 -*-
 
+# BeautifulSoup：用于解析HTML和XML文档，提取所需数据
 from bs4 import BeautifulSoup
+# re：正则表达式库，用于字符串匹配和搜索
 import re
+# urllib：用于处理URL和从网络上获取数据
 import urllib.request, urllib.error, urllib.parse
+# xlwt：用于将数据写入Excel文件的库
 import xlwt
+# sqlite3：Python内置的SQLite数据库模块，用于创建和操作SQLite数据库
 import sqlite3
-
 
 def main():
     baseurl = 'https://movie.douban.com/top250?start='
@@ -97,7 +101,9 @@ def getData(baseurl):
 # 得到指定一个URL的网页内容
 def askURL(url):
     # 模拟浏览器头部信息
-    head = {    # 这里访问的是www.douban.com，加上cookie才成功访问，不然会403
+    head = {
+        # 这里访问的是www.douban.com，加上cookie才成功访问，不然会403
+        # 这个cookie得自己用访问时候的
         "cookie":'''bid=lmDVVK_MwCE; dbcl2="287312225:gaIljLl3paE"; ck=A87B; _pk_ref.100001.4cf6=%5B%22%22%2C%22%22%2C1740403496%2C%22https%3A%2F%2Faccounts.douban.com%2F%22%5D; _pk_id.100001.4cf6=c5aee2ffb5a4b0b1.1740403496.; push_noty_num=0; push_doumail_num=0; __yadk_uid=FMUehx3EWLsxQlgs8OU0iEQf5rgnlRfM''',
         "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 Edg/133.0.0.0" }
     # 用户代理： 表示告诉浏览器我们是什么类型的机器、浏览器（我们能接受什么信息）
